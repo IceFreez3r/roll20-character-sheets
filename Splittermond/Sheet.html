@@ -12207,7 +12207,7 @@ function parse_spell(spell_string) {
     const spell_range = cells[107].replace("Zaub.", "Z").replace("Ber.", "B").replace(" m", "m");
     const spell_duration = cells[108];
     const spell_cost_enhanced = cells[111].split("+")[1];
-    const spell_text = cells[114].replace('"', '')
+    const spell_text = cells[114].replaceAll('"', '').replace(/\d+\sEG/, (match) => `\n${match}`);
     return {
         name: spell_name,
         school: spell_school,
